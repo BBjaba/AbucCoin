@@ -540,7 +540,7 @@ var i,
 	docElem,
 	documentIsHTML,
 	rbuggyQSA,
-	rbuggyMatches,
+	rbugabucatches,
 	matches,
 	contains,
 
@@ -1247,7 +1247,7 @@ setDocument = Sizzle.setDocument = function( node ) {
 	// QSA and matchesSelector support
 
 	// matchesSelector(:active) reports false when true (IE9/Opera 11.5)
-	rbuggyMatches = [];
+	rbugabucatches = [];
 
 	// qSa(:focus) reports false when true (Chrome 21)
 	// We allow this because of a bug in IE8/9 that throws an error
@@ -1352,12 +1352,12 @@ setDocument = Sizzle.setDocument = function( node ) {
 			// This should fail with an exception
 			// Gecko does not error, returns false instead
 			matches.call( el, "[s!='']:x" );
-			rbuggyMatches.push( "!=", pseudos );
+			rbugabucatches.push( "!=", pseudos );
 		});
 	}
 
 	rbuggyQSA = rbuggyQSA.length && new RegExp( rbuggyQSA.join("|") );
-	rbuggyMatches = rbuggyMatches.length && new RegExp( rbuggyMatches.join("|") );
+	rbugabucatches = rbugabucatches.length && new RegExp( rbugabucatches.join("|") );
 
 	/* Contains
 	---------------------------------------------------------------------- */
@@ -1502,7 +1502,7 @@ Sizzle.matchesSelector = function( elem, expr ) {
 
 	if ( support.matchesSelector && documentIsHTML &&
 		!nonnativeSelectorCache[ expr + " " ] &&
-		( !rbuggyMatches || !rbuggyMatches.test( expr ) ) &&
+		( !rbugabucatches || !rbugabucatches.test( expr ) ) &&
 		( !rbuggyQSA     || !rbuggyQSA.test( expr ) ) ) {
 
 		try {

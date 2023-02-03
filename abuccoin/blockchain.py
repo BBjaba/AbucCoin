@@ -156,7 +156,7 @@ class Blockchain (object):
 			blockJSON['prev'] = block.prev
 			blockJSON['time'] = block.time
 			blockJSON['nonse'] = block.nonse
-			blockJSON['gym'] = block.gym
+			blockJSON['abuc'] = block.abuc
 
 
 			transactionsJSON = []
@@ -191,7 +191,7 @@ class Blockchain (object):
 			block.hash = blockJSON['hash']
 			block.prev =blockJSON['prev']
 			block.nonse = blockJSON['nonse']
-			block.gym = blockJSON['gym']
+			block.abuc = blockJSON['abuc']
 
 			chain.append(block)
 		return chain
@@ -219,10 +219,10 @@ class Block (object):
 		self.time = time
 		self.prev = ''
 		self.nonse = 0
-		self.gym = self.calculateGym()
+		self.abuc = self.calculateabuc()
 		self.hash = self.calculateHash()
 
-	def calculateGym(self):
+	def calculateabuc(self):
 		return "24 hr"
 
 	def calculateHash(self):
@@ -231,7 +231,7 @@ class Block (object):
 
 		for transaction in self.transactions:
 			hashTransactions += transaction.hash
-		hashString = str(self.time) + hashTransactions + self.gym + self.prev + str(self.nonse)
+		hashString = str(self.time) + hashTransactions + self.abuc + self.prev + str(self.nonse)
 		hashEncoded = json.dumps(hashString, sort_keys=True).encode()
 		return hashlib.sha256(hashEncoded).hexdigest()
 
